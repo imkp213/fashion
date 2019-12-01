@@ -13,8 +13,7 @@ export class CartService {
 
   total_cart_amnt = new BehaviorSubject(0);
   totalCartAmnt = this.total_cart_amnt.asObservable();
-
-  apiBaseUrl: string = environment.apiBaseUrl;
+  apiBaseUrl = environment.apiBaseUrl;
   constructor(private http: HttpClient, private cookie: CookieService) {}
 
   addCart(cartJson) {
