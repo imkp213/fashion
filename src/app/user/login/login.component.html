@@ -1,0 +1,73 @@
+<div class="container-fluid">
+  <div class="container">
+    <div class="row mt-5">
+      <div class="col-md-6">
+        <div class="block-16">
+          <figure>
+            <img
+              src="assets/images/blog_1.jpg"
+              alt="Image placeholder"
+              class="img-fluid rounded"
+            />
+          </figure>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <p class="text-danger">{{ error_message }}</p>
+        <p class="text-success">{{ success_message }}</p>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <div class="p-3 p-lg-5 border">
+            <div class="form-group row">
+              <div class="col-md-12">
+                <label for="c_email" class="text-black"
+                  >Email <span class="text-danger">*</span></label
+                >
+                <input
+                  type="email"
+                  formControlName="email"
+                  class="form-control"
+                />
+                <div
+                  *ngIf="submitted && f.email.errors"
+                  class="invalid-feedback"
+                >
+                  <div *ngIf="f.email.errors.required">Email is required</div>
+                  <div *ngIf="f.email.errors.email">
+                    Email must be a valid email address
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-md-12">
+                <label class="text-black">Password </label>
+                <input
+                  type="password"
+                  formControlName="password"
+                  class="form-control"
+                />
+                <div
+                  *ngIf="submitted && f.password.errors"
+                  class="invalid-feedback"
+                >
+                  <div *ngIf="f.password.errors.required">
+                    password is required
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-lg-12">
+                <button class="btn btn-primary btn-lg btn-block">
+                  Sign in
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

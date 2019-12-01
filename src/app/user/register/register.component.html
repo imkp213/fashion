@@ -1,0 +1,97 @@
+<div class="container-fluid">
+  <div class="container">
+    <div class="row mt-5">
+      <div class="col-md-6">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+          <div class="p-3 p-lg-5 border">
+            <p class="text-danger">{{ error_message }}</p>
+            <p class="text-success">{{ success_message }}</p>
+            <div class="form-group row">
+              <div class="col-md-12">
+                <label for="c_lname" class="text-black"
+                  >Name <span class="text-danger">*</span></label
+                >
+                <input
+                  type="text"
+                  formControlName="name"
+                  class="form-control"
+                />
+                <div
+                  *ngIf="submitted && f.name.errors"
+                  class="invalid-feedback"
+                >
+                  <div *ngIf="f.name.errors.required">
+                    First Name is required
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-md-12">
+                <label for="c_email" class="text-black"
+                  >Email <span class="text-danger">*</span></label
+                >
+                <input
+                  type="email"
+                  formControlName="email"
+                  class="form-control"
+                />
+                <div
+                  *ngIf="submitted && f.email.errors"
+                  class="invalid-feedback"
+                >
+                  <div *ngIf="f.email.errors.required">Email is required</div>
+                  <div *ngIf="f.email.errors.email">
+                    Email must be a valid email address
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-md-12">
+                <label class="text-black"
+                  >Password <span class="text-danger">*</span></label
+                >
+                <input
+                  type="password"
+                  formControlName="password"
+                  class="form-control"
+                />
+                <div
+                  *ngIf="submitted && f.password.errors"
+                  class="invalid-feedback"
+                >
+                  <div *ngIf="f.password.errors.required">
+                    Password is required
+                  </div>
+                  <div *ngIf="f.password.errors.minlength">
+                    Password must be at least 6 characters
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-lg-12">
+                <button class="btn btn-primary btn-lg btn-block">
+                  Sign up
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-6">
+        <div class="block-16">
+          <figure>
+            <img
+              src="assets/images/blog_1.jpg"
+              alt="Image placeholder"
+              class="img-fluid rounded"
+            />
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+.item-pro {
+  border: solid #babdc5 1px;
+  box-shadow: 0 1px 4px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+.ishop {
+  font-size: 30px !important;
+}
+
+button.owl-prev,
+button.owl-next {
+  font-size: 30px !important;
+}
+
+.owl-carousel .owl-nav button.owl-next,
+.owl-carousel .owl-nav button.owl-prev,
+.owl-carousel button.owl-dot {
+  font-size: 30px !important;
+}

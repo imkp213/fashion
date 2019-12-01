@@ -1,0 +1,26 @@
+<td class="product-thumbnail">
+  <a routerLink="/products/{{ product.pro_slug }}">
+    <img src="{{ product.pro_image=='' ? default_img : imageUrl+product.pro_image }}" alt="Image" class="img-fluid" />
+  </a>
+</td>
+<td class="product-name">
+  <h2 class="h5 text-black">{{ product.pro_name }}</h2>
+</td>
+<td>{{ product.cart_price | currency:'INR':'symbol':'2.0' }}</td>
+<td>
+  <div class="input-group mb-3" style="max-width: 120px;">
+    <div class="input-group-prepend">
+      <button class="btn btn-outline-primary js-btn-minus" (click)="decrement()" type="button">
+        −
+      </button>
+    </div>
+    <input type="text" readonly class="form-control text-center" value="{{ product.cart_qty }}" />
+    <div class="input-group-append">
+      <button class="btn btn-outline-primary js-btn-plus" (click)="increment()" type="button">
+        +
+      </button>
+    </div>
+  </div>
+</td>
+<td>{{ product.cart_qty*product.cart_price | currency:'INR':'symbol':'2.0' }}</td>
+<td><a (click)="deleteCart()" class="btn btn-primary btn-sm">X</a></td>

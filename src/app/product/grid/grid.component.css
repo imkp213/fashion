@@ -1,0 +1,22 @@
+.btn-cart{
+    font-size: 12px;
+    line-height: 2;
+    background: #7971ea;
+    color: #fff;
+    border-radius: 23px;
+    
+}
+
+.btn-cart:hover{
+    background: #000;
+    transition: 0.5s;
+}
+
+.pro-price{
+    font-weight: 600;
+    color: #5d5d5d;
+}
+
+.pro-details{
+    padding: 10px;
+}

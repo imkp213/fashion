@@ -1,0 +1,45 @@
+<div class="container-fluid">
+  <div class="container">
+    <div class="">
+      <div class="site-blocks-table">
+        <table class="table table-bordered" *ngFor="let order of orders">
+          <tr>
+            <th class="product-thumbnail" colspan="3">
+              Order ID : {{ order.order_id }}
+            </th>
+            <th class="product-thumbnail">Quantity : {{ order.total_qty }}</th>
+            <th class="product-thumbnail">Amount : {{ order.total_amount }}</th>
+          </tr>
+          <tr *ngFor="let product of order.carts">
+            <td class="product-thumbnail">
+              <a routerLink="/products/{{ product.pro_slug }}">
+                <img
+                  src="{{
+                    product.pro_image == ''
+                      ? default_img
+                      : imageUrl + product.pro_image
+                  }}"
+                  alt="Image"
+                  class="img-fluid"
+                />
+              </a>
+            </td>
+            <td class="product-name">
+              <h2 class="h5 text-black">{{ product.pro_name }}</h2>
+            </td>
+            <td>
+              {{ product.cart_price | currency: "INR":"symbol":"2.0" }}
+            </td>
+            <td>{{ product.cart_qty }}</td>
+            <td>
+              {{
+                product.cart_qty * product.cart_price
+                  | currency: "INR":"symbol":"2.0"
+              }}
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="block-4 text-center border">
+  <figure class="block-4-image">
+    <a routerLink="/products/{{ product.pro_slug }}"><img
+        src="{{ product.pro_image=='' ? default_img : imageUrl+product.pro_image }}" alt="Image placeholder"
+        class="img-fluid" /></a>
+  </figure>
+  <div class="block-4-text pro-details">
+    <h3><a routerLink="/products/{{ product.pro_slug }}">{{ product.pro_name }}</a></h3>
+    <!-- <p class="mb-0">{{ product.pro_desc | slice:0:20 }}..</p> -->
+    <p class="pro-price">{{ product.pro_price | currency:'INR':'symbol':'2.0' }}</p>
+    <button class="btn btn-cart" (click)="addToCart(product.pro_id)">ADD TO CART</button>
+  </div>
+</div>

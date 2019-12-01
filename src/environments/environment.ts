@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiBaseUrl: "http://localhost/fashion_cube/api/",
+  imageBaseUrl: "http://localhost/fashion_cube/",
+  appBaseUrl: "http://localhost:4200"
 };
 
 /*
