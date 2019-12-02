@@ -1,7 +1,7 @@
 import { CookieService } from "ngx-cookie-service";
 import { Injectable } from "@angular/core";
 import { environment } from "./../../environments/environment";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { BehaviorSubject } from "rxjs";
 
 @Injectable({
@@ -41,6 +41,12 @@ export class UserService {
   }
 
   userOrders(id) {
-    return this.http.get(this.apiBaseUrl + "user-orders/" + id);
+    var auth_token = this.cookie.get("_token");
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${auth_token}`
+    });
+    return this.http.get(this.apiBaseUrl + "user-orders/" + id, {
+      headers: headers
+    });
   }
 }

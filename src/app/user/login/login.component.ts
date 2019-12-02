@@ -42,7 +42,9 @@ export class LoginComponent implements OnInit {
       res => {
         if (res["status"] == true) {
           // this.loginForm.reset();
-          var user = res["data"]["user"];
+          // console.log(res["data"]);
+          // return false;
+          var user = res["data"];
           this.submitted = false;
           this.userService.changeUserName(user["name"], user["id"]);
 
@@ -54,6 +56,7 @@ export class LoginComponent implements OnInit {
           });
 
           this.cookie.set("_uid", user["id"]);
+          this.cookie.set("_token", res["token"]);
           this.success_message = "You successfully logged in..";
           this.route.navigate(["/"]);
         } else {

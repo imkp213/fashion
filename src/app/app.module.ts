@@ -1,3 +1,4 @@
+import { AuthInterceptor } from "./auth.interceptor";
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 
@@ -17,7 +18,7 @@ import { GridComponent } from "./product/grid/grid.component";
 import { OwlModule } from "ngx-owl-carousel";
 import { CartRowComponent } from "./user/cart-row/cart-row.component";
 import { ProductsService } from "./services/products.service";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { LoginRegisterComponent } from "./user/login-register/login-register.component";
 import { UserService } from "./services/user.service";
 import { CartService } from "./services/cart.service";
@@ -55,7 +56,8 @@ import { AuthGuard } from "./auth.guard";
     UserService,
     CartService,
     CookieService,
-    AuthGuard
+    AuthGuard,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })
