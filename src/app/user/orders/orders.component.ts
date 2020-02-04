@@ -22,7 +22,6 @@ export class OrdersComponent implements OnInit {
     this.userService.userOrders(id).subscribe(res => {
       if (res["status"] == true) {
         this.orders = res["data"];
-        console.log(this.orders);
       }
     });
   }
