@@ -17,10 +17,12 @@ export class AuthInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     const token = this.cookie.get("_token");
-    // console.log('hello',token)
+    // console.log("hello", token);
     if (!token) {
       return next.handle(req);
     }
+    // console.log("hello", token);
+
     var headers_object = new HttpHeaders().set(
       "Authorization",
       `Bearer ${token}`

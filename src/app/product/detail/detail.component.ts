@@ -64,6 +64,8 @@ export class DetailComponent implements OnInit {
           });
         }
       });
+    } else {
+      alert("please logn first");
     }
   }
 }
